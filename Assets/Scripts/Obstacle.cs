@@ -4,8 +4,23 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    //instantiate an obstacle
+    PlayerController playerController;
 
-    //when a player hits the obstacle then gameover is set to true
+    private void Start()
+    {
+        playerController = FindObjectOfType<PlayerController>();
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        //when a player hits the obstacle then gameover is set to true
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            //game over
+            Debug.Log("Game Over");
+            //GameManager.isGameOver = true;
 
+            //reduce speed
+            //playerController.speed -= 0.01f;
+        }
+    }
 }

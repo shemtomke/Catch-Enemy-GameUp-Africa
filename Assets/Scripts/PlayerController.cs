@@ -5,21 +5,19 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-
+    public float increaseSpeed;
     private void Update()
     {
         Movement();
-
-        //increase speed of the player as you progress with the game
-        //speed += Time.deltaTime;
-
-        //if you hit an object then reduce the speed
-
     }
     void Movement()
     {
         //move in z axis
         transform.Translate(Vector3.forward * speed);
+
+        //if you hit an object then reduce the speed
+        //increase speed of the player as you progress with the game
+        speed += increaseSpeed;
 
         SideMove();
     }

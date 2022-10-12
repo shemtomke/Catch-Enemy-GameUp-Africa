@@ -14,7 +14,7 @@ public class PlayerJump : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
     }
-    private void Update()
+    private void FixedUpdate()
     {
         Jump();
     }
@@ -28,7 +28,7 @@ public class PlayerJump : MonoBehaviour
         //when the player swipes up
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             anim.SetTrigger("isJump"); //use trigger
             isGrounded = false;
         }
