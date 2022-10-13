@@ -18,9 +18,6 @@ public class Obstacle : MonoBehaviour
             //game over
             Debug.Log("Game Over");
             //GameManager.isGameOver = true;
-
-            //reduce speed
-            //playerController.speed -= 0.01f;
         }
     }
 }

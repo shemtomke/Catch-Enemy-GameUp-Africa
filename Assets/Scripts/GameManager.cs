@@ -81,9 +81,7 @@ public class GameManager : MonoBehaviour
         {
             //set is move to false - player and enemy
 
-            //time scale to 0
-
-            //start again game - restart
+            //start again game - restart - when clicking again
         }
     }
 }

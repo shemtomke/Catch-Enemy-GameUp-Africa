@@ -11,9 +11,12 @@ public class CatchEnemy : MonoBehaviour
     public float dist;
     public LayerMask enemyLayer;
 
+    public Animator enemyAnim;
+    Animator playerAnim;
+
     private void Start()
     {
-        
+        playerAnim = GetComponent<Animator>();
     }
     
     private void Update()
@@ -42,7 +45,8 @@ public class CatchEnemy : MonoBehaviour
         //GameManager.isCatchEnemy = true;
 
         //play animation
-
+        playerAnim.SetTrigger("isFight");
+        enemyAnim.SetTrigger("isCaught");
         //change camera
 
     }

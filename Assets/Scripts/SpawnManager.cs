@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject obstaclePrefab;
     public GameObject[] tilePrefab; //should contain the obstacle and collectable
     public GameObject collectablePrefab;
 
@@ -24,19 +23,11 @@ public class SpawnManager : MonoBehaviour
     }
     private void Update()
     {
+        //player position to destroy tiles which are behind
         if(playerTransform.position.z > (spawnZ - amountOfTiles * tileLength))
         {
             SpawnPath();
         }
-    }
-
-    //instantiate an obstacle
-    void SpawnObstacle()
-    {
-        //instantiate either x in -3, 0, 3
-        //y in 0
-        //z in maximum
-        
     }
     void SpawnCollectables()
     {
@@ -44,8 +35,10 @@ public class SpawnManager : MonoBehaviour
     }
     void SpawnPath(int prefabIndex = -1)
     {
+        int randomTile = Random.Range(0, tilePrefab.Length);
+
         GameObject gO;
-        gO = Instantiate(tilePrefab[0]) as GameObject;
+        gO = Instantiate(tilePrefab[randomTile]) as GameObject;
         gO.transform.SetParent(transform);
         gO.transform.position = Vector3.forward * spawnZ;
         spawnZ += tileLength;
