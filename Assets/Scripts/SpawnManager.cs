@@ -5,17 +5,14 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] tilePrefab; //should contain the obstacle and collectable
-    //public GameObject collectablePrefab;
 
     private float spawnZ = 0.0f;
-    private int amountOfTiles = 5; //visible on the screen
+    private int amountOfTiles = 5; //visible on the game screen
     public float tileLength;
-    Transform playerTransform;
+    public Transform playerTransform;
 
     private void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-
         for (int i = 0; i < amountOfTiles; i++)
         {
             SpawnPath();
@@ -28,10 +25,6 @@ public class SpawnManager : MonoBehaviour
         {
             SpawnPath();
         }
-    }
-    void SpawnCollectables()
-    {
-
     }
     void SpawnPath(int prefabIndex = -1)
     {
