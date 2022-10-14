@@ -494,13 +494,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 364985741}
+  - component: {fileID: 364985742}
   m_Layer: 0
   m_Name: Spawn Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &364985741
 Transform:
   m_ObjectHideFlags: 0
@@ -515,6 +516,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &364985742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364985740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2bd6f638b1b58d4f842df9fb2aaf5d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilePrefab:
+  - {fileID: 2625431068311946807, guid: 49a91625e9b98e74dbb2be130208548a, type: 3}
+  tileLength: 30
 --- !u!1 &418597489
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,7 +937,7 @@ RectTransform:
   - {fileID: 1677822552}
   - {fileID: 834393842}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1592,7 +1608,7 @@ Transform:
   m_LocalScale: {x: 10, y: 1, z: 100000}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1677822551
 GameObject:
@@ -1643,7 +1659,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  increaseSpeed: 0.0001
+  increaseSpeed: 0.00012
+  isPlayerMove: 0
 --- !u!1 &2123951600
 GameObject:
   m_ObjectHideFlags: 0
@@ -2154,6 +2171,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   dist: 15
+  isEnemyMove: 1
 --- !u!136 &919132147653391890
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2213,8 +2231,8 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653720854443}
   - component: {fileID: 919132149176362259}
-  - component: {fileID: 919132149176362260}
   - component: {fileID: 919132149176362261}
+  - component: {fileID: 919132149176362260}
   - component: {fileID: 1975708851}
   - component: {fileID: 919132149176362258}
   - component: {fileID: 919132149176362262}
@@ -2264,8 +2282,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3890638
-  m_Height: 1.8999999
+  m_Radius: 0.39
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!95 &919132149176362261
@@ -2299,13 +2317,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a54fbe6d25b3449ac8fb89e50382c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catchBtn: {fileID: 0}
   isHitEnemy: 0
   enemyTarget: {fileID: 543450651845586090}
   dist: 2
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  enemyAnim: {fileID: 919132147653391892}
 --- !u!1 &958396148271670587
 GameObject:
   m_ObjectHideFlags: 0

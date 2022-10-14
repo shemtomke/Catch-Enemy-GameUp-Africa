@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static bool isPlayerMove = false;
-    public static bool isEnemyMove = false;
     public static bool isGameOver = false;
     public static bool isCatchEnemy = false;
     public bool isPause;
@@ -27,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        isCatchEnemy = isGameOver = false;
         endlessScore = collectableScore = 0;
         playerController = FindObjectOfType<PlayerController>();
         enemyMovement = FindObjectOfType<EnemyMovement>();
@@ -80,6 +79,8 @@ public class GameManager : MonoBehaviour
         if(isCatchEnemy)
         {
             //set is move to false - player and enemy
+            playerController.isPlayerMove = false;
+            enemyMovement.isEnemyMove = false;
 
             //start again game - restart - when clicking again
         }

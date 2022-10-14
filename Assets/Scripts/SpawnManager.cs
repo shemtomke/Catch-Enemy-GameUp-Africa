@@ -5,10 +5,10 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] tilePrefab; //should contain the obstacle and collectable
-    public GameObject collectablePrefab;
+    //public GameObject collectablePrefab;
 
     private float spawnZ = 0.0f;
-    private int amountOfTiles = 3; //visible on the screen
+    private int amountOfTiles = 5; //visible on the screen
     public float tileLength;
     Transform playerTransform;
 
@@ -38,7 +38,7 @@ public class SpawnManager : MonoBehaviour
         int randomTile = Random.Range(0, tilePrefab.Length);
 
         GameObject gO;
-        gO = Instantiate(tilePrefab[randomTile]) as GameObject;
+        gO = Instantiate(tilePrefab[0]) as GameObject;
         gO.transform.SetParent(transform);
         gO.transform.position = Vector3.forward * spawnZ;
         spawnZ += tileLength;

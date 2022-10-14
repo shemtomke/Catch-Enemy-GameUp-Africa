@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class CatchEnemy : MonoBehaviour
 {
-    public Button catchBtn;
     public bool isHitEnemy;
     public Transform enemyTarget;
     public float dist;
@@ -42,7 +41,7 @@ public class CatchEnemy : MonoBehaviour
     void Catch()
     {
         //set the iscatchenemy To true
-        //GameManager.isCatchEnemy = true;
+        GameManager.isCatchEnemy = true;
 
         //play animation
         playerAnim.SetTrigger("isFight");

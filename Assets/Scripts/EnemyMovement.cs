@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     public LayerMask obstacles;
     public float dist;
 
+    public bool isEnemyMove;
     float timeTaken;
     int randomPos;
     bool isJumpEnemy;
@@ -19,6 +20,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
+        isEnemyMove = true;
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
 
@@ -26,16 +28,19 @@ public class EnemyMovement : MonoBehaviour
     }
     private void Update()
     {
-        Movement();
-        Jump();
+        if(isEnemyMove)
+        {
+            Movement();
+            Jump();
 
-        if(transform.position.x > 0)
-        {
-            transform.position = new Vector3(3, transform.position.y, transform.position.z);
-        }
-        else if(transform.position.x < 0)
-        {
-            transform.position = new Vector3(-3, transform.position.y, transform.position.z);
+            if (transform.position.x > 0)
+            {
+                transform.position = new Vector3(3, transform.position.y, transform.position.z);
+            }
+            else if (transform.position.x < 0)
+            {
+                transform.position = new Vector3(-3, transform.position.y, transform.position.z);
+            }
         }
     }
     void Movement()
@@ -50,14 +55,17 @@ public class EnemyMovement : MonoBehaviour
     //left and right to move the player sideways
     void SideMove()
     {
-        switch (randomPos)
+        if (isEnemyMove)
         {
-            case 0:
-                transform.position = new Vector3(transform.position.x + 3, transform.position.y, transform.position.z);
-                break;
-            case 1:
-                transform.position = new Vector3(transform.position.x - 3, transform.position.y, transform.position.z);
-                break;
+            switch (randomPos)
+            {
+                case 0:
+                    transform.position = new Vector3(transform.position.x + 3, transform.position.y, transform.position.z);
+                    break;
+                case 1:
+                    transform.position = new Vector3(transform.position.x - 3, transform.position.y, transform.position.z);
+                    break;
+            }
         }
     }
     //enemy jumps when a raycast detects an obstacle

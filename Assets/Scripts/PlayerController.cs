@@ -6,9 +6,17 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public float increaseSpeed;
+
+    public bool isPlayerMove;
+
+    private void Start()
+    {
+        isPlayerMove = true;
+    }
     private void Update()
     {
-        Movement();
+        if(isPlayerMove)
+            Movement();
     }
     void Movement()
     {
@@ -36,7 +44,7 @@ public class PlayerController : MonoBehaviour
         else if(Input.GetKeyDown(KeyCode.LeftArrow))
         {
             //move left if the player is right/centre
-            if(transform.position.x == 0 || transform.position.x == 3)
+            if (transform.position.x == 0 || transform.position.x == 3)
             {
                 transform.position = new Vector3(transform.position.x - 3, transform.position.y, transform.position.z);
             }
