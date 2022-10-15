@@ -32,17 +32,10 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        StartGame();
         EndlessRunScore();
         CollectibleScore();
         GameOver();
         Win();
-    }
-    void StartGame()
-    {
-        //on click anywhere then start the game
-        //set active the ingame panel
-        //move player and enemy
     }
     public void TwitterUrl()
     {

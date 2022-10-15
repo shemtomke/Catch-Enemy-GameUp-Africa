@@ -16,6 +16,9 @@ public class PlayerJump : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (GameManager.isCatchEnemy || GameManager.isGameOver)
+            return;
+
         Jump();
     }
     private void OnCollisionStay(Collision collision)
