@@ -31,7 +31,7 @@ public class SpawnManager : MonoBehaviour
         int randomTile = Random.Range(0, tilePrefab.Length);
 
         GameObject gO;
-        gO = Instantiate(tilePrefab[0]) as GameObject;
+        gO = Instantiate(tilePrefab[randomTile]) as GameObject;
         gO.transform.SetParent(transform);
         gO.transform.position = Vector3.forward * spawnZ;
         spawnZ += tileLength;

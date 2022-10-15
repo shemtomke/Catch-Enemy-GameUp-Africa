@@ -46,7 +46,5 @@ public class CatchEnemy : MonoBehaviour
         //play animation
         playerAnim.SetTrigger("isFight");
         enemyAnim.SetTrigger("isCaught");
-        //change camera
-
     }
 }

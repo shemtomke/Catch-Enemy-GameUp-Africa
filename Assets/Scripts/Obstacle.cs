@@ -15,9 +15,7 @@ public class Obstacle : MonoBehaviour
         //when a player hits the obstacle then gameover is set to true
         if (collision.gameObject.CompareTag("Player"))
         {
-            //game over
-            Debug.Log("Game Over");
-            //GameManager.isGameOver = true;
+            GameManager.isGameOver = true;
         }
     }
 }

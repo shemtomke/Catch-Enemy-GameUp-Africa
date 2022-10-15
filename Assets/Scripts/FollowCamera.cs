@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowCamera : MonoBehaviour
 {
     public Transform target;
-    private Vector3 offset, gameWinOffset;
+    private Vector3 offset;
     public float smoothSpeed = 0.04f;
 
     CatchEnemy catchEnemy;
@@ -13,7 +13,6 @@ public class FollowCamera : MonoBehaviour
     void Start()
     {
         offset = transform.position - target.position;
-        //gameWinOffset = new Vector3(0, );
         catchEnemy = FindObjectOfType<CatchEnemy>();
     }
 
@@ -21,13 +20,5 @@ public class FollowCamera : MonoBehaviour
     {
         Vector3 newPosition = Vector3.Lerp(transform.position, target.position + offset, smoothSpeed);
         transform.position = newPosition;
-
-        if(GameManager.isCatchEnemy)
-        {
-            //change the camera pos and rot
-            
-            //pos (0, 3, 6)
-            //rot (12, 180, 0)
-        }
     }
 }
