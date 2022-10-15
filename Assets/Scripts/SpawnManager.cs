@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject[] tilePrefab; //should contain the obstacle and collectable
+    public GameObject[] tilePrefab; //should contain the obstacle
 
     private float spawnZ = 0.0f;
     private int amountOfTiles = 5; //visible on the game screen
@@ -15,7 +15,13 @@ public class SpawnManager : MonoBehaviour
     {
         for (int i = 0; i < amountOfTiles; i++)
         {
-            SpawnPath();
+            //spawn the 4th tile on start - has no obstacles
+            //give room for the player to move freely
+            GameObject gO;
+            gO = Instantiate(tilePrefab[4]) as GameObject;
+            gO.transform.SetParent(transform);
+            gO.transform.position = Vector3.forward * spawnZ;
+            spawnZ += tileLength;
         }
     }
     private void Update()
@@ -35,5 +41,9 @@ public class SpawnManager : MonoBehaviour
         gO.transform.SetParent(transform);
         gO.transform.position = Vector3.forward * spawnZ;
         spawnZ += tileLength;
+    }
+    void SpawnCollectible()
+    {
+
     }
 }

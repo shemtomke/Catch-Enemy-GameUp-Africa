@@ -94,7 +94,16 @@ public class GameManager : MonoBehaviour
             gameOverPanel.SetActive(true);
 
             //restart by clicking anywhere
+            if (Input.GetButtonDown("Fire1"))
+            {
+                /*if (score > PlayerPrefs.GetInt("HighScore", 0))
+                {
+                    PlayerPrefs.SetInt("HighScore", score);
+                }
 
+                score = 0;*/
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
     }
     void Win()
@@ -109,7 +118,11 @@ public class GameManager : MonoBehaviour
             winGamePanel.SetActive(true);
 
             //restart on click anywhere
-            
+            if (Input.GetButtonDown("Fire1"))
+            {
+                //PlayerPrefs.SetInt("CurrentLevelIndex", currentLevelIndex + 1);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
     }
 }
